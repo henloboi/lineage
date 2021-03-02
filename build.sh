@@ -4,25 +4,25 @@
 
 cd /drone/src/work/
 # Clone tree START
-git clone https://github.com/JamieHoSzeYui/omni_device_xiaomi_merlin device/xiaomi/merlin # Clone your trees here
+git clone https://github.com/JamieHoSzeYui/device_xiaomi_sm6250-common device/xiaomi/sm6250-common 
+git clone https://github.com/JamieHoSzeYui/device_xiaomi_miatoll device/xiaomi/miatoll 
+git clone https://github.com/JamieHoSzeYui/vendor_xiaomi_miatoll --depth=1 --single-branch vendor/xiaomi/miatoll 
+git clone https://github.com/JamieHoSzeYui/vendor_xiaomi_sm6250-common --depth=1 --single-branch vendor/xiaomi/sm6250-common 
+git clone https://github.com/JamieHoSzeYui/android_kernel_xiaomi_sm6250 --depth=1 --single-branch kernel/xiaomi/sm6250  # Clone your trees here
 # CLONE TREE END
 
 # VARIABLES, DEFINE THEM ELSE YOU'RE GAY
-DEVICE=merlin
-TARGET=recoveryimage
+DEVICE=miatoll 
 # END VARIABLES
 
 . build/envsetup.sh
-lunch omni_$DEVICE-eng
-mka $TARGET -j48
+brunch miatoll 
 
 # Upload
 cd out/target/product/$DEVICE/
 touch links.txt
 echo "Recovery image: " >> links.txt
-transfer wet recovery.img  | grep Download >> links.txt
-echo "Backup link on anonfiles : " >> links.txt
-curl -F file=@recovery.img https://api.anonymousfiles.io/ >> links.txt
+transfer wet crDroidAndroid*.zip | grep Download >> links.txt
 
 echo ""
 echo ""
