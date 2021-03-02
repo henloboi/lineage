@@ -16,6 +16,8 @@ DEVICE=miatoll
 # END VARIABLES
 
 . build/envsetup.sh
+# Bunch of vars if you need them 
+# e.g. export official vars
 brunch miatoll 
 
 # Upload
