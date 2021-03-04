@@ -18,12 +18,12 @@ DEVICE=miatoll
 . build/envsetup.sh
 # Bunch of vars if you need them 
 # e.g. export official vars
-brunch miatoll 
+brunch miatoll -j96
 
 # Upload
 cd out/target/product/$DEVICE/
 touch links.txt
-echo "Recovery image: " >> links.txt
+echo "ROM ZIP: " >> links.txt
 transfer wet crDroidAndroid*.zip | grep Download >> links.txt
 
 echo ""
