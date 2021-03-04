@@ -18,7 +18,7 @@ DEVICE=miatoll
 . build/envsetup.sh
 # Bunch of vars if you need them 
 # e.g. export official vars
-brunch miatoll -j96
+brunch miatoll
 
 # Upload
 cd out/target/product/$DEVICE/
